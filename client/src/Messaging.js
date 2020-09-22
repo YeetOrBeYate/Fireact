@@ -15,7 +15,7 @@ export const Messaging = () => {
 
   React.useEffect(() => {
     setRequesting(true);
-    axios.get("/messages").then((resp) => {
+    axios.get('http://localhost:4000/messages').then((resp) => {
       setMessages(resp.data.messages);
       setRequesting(false);
     });
