@@ -17,11 +17,10 @@ import { Messaging } from './Messaging';
 const App = () => {
 
   React.useEffect(() => {
-    console.log('this ran')
     requestFirebaseNotificationPermission()
       .then((firebaseToken) => {
         // eslint-disable-next-line no-console
-        console.log(firebaseToken);
+        console.log('got token')
       })
       .catch((err) => {
         console.log(err)

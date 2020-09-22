@@ -19,15 +19,14 @@ const messaging = firebase.messaging();
 export const requestFirebaseNotificationPermission = () =>
 new Promise((resolve, reject) => {
   messaging
-  .Notification.requestPermission()
-  .then(() => messaging.getToken())
+  .getToken()
   .then((firebaseToken) => {
-        console.log(firebaseToken)
         resolve(firebaseToken);
       })
-      .catch((err) => {
-        reject(err);
-      });
+  .catch((err) => {
+      console.log(err)
+      reject(err);
+    });
   });
 
 export const onMessageListener = () =>
