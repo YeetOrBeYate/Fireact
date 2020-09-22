@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { Fragment } from 'react';
 
 import Row from 'react-bootstrap/Row';
@@ -6,15 +5,30 @@ import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 
+import { requestFirebaseNotificationPermission } from './firebaseInit'
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './App.scss';
 import { Messaging } from './Messaging';
 
-axios.defaults.baseURL = 'http://localhost:3001/v1';
 
 const App = () => {
+
+  React.useEffect(() => {
+    console.log('this ran')
+    requestFirebaseNotificationPermission()
+      .then((firebaseToken) => {
+        // eslint-disable-next-line no-console
+        console.log(firebaseToken);
+      })
+      .catch((err) => {
+        console.log(err)
+        return err;
+      });
+  })
+
   return (
     <Fragment>
       <ToastContainer autoClose={2000} position="top-center" />

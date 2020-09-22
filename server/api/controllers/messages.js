@@ -1,4 +1,5 @@
 const pool = require('../../models/pool.js')
+const sendNotificationToClient = require('../../notify.js')
 
 const messagesPage = async (req, res, next) => {
   try {
@@ -21,6 +22,13 @@ const addMessage = async (req, res, next) => {
 
   try {
     const data = await pool.pool.query(query)
+
+    const tokens = []
+    const notificationData = {
+      title: 'New message',
+      body: message,
+    };
+    sendNotificationToClient(tokens, notificationData)
     res.status(201).json({ messages: data.rows });
   } catch (err) {
     res.status(401).json({ message: 'bad request' })
