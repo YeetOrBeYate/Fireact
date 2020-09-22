@@ -23,7 +23,7 @@ const addMessage = async (req, res, next) => {
   try {
     const data = await pool.pool.query(query)
 
-    const tokens = []
+    const tokens = ['dXy_EfcQ80Fg7zWLA6CIch:APA91bEe1oQRhSPv-Gefyc9jdJ6GwK5Pyo7SOQ5aXavGfB9VD1jNADwPIvXDFiFlKJnMJkHXMexb784U6NFR_BipZePFpePNfRHJ_r_pBPvNiwzWGWSAgnZ1VZgYD08uxh3FLD84JOWQ']
     const notificationData = {
       title: 'New message',
       body: message,
@@ -31,6 +31,7 @@ const addMessage = async (req, res, next) => {
     sendNotificationToClient(tokens, notificationData)
     res.status(201).json({ messages: data.rows });
   } catch (err) {
+    console.log('err', err)
     res.status(401).json({ message: 'bad request' })
   }
 };

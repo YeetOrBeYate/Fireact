@@ -20,7 +20,7 @@ const App = () => {
     requestFirebaseNotificationPermission()
       .then((firebaseToken) => {
         // eslint-disable-next-line no-console
-        console.log('got token')
+        console.log(firebaseToken) //normally would send this to the db for out backend to access on the notif endpoints
       })
       .catch((err) => {
         console.log(err)
