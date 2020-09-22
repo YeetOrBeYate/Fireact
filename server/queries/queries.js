@@ -10,16 +10,7 @@ CREATE TABLE IF NOT EXISTS messages (
 const insertMessages = `
 INSERT INTO messages(name, message)
 VALUES ('chidimo', 'first message'),
-      ('orji', 'second message'),
-      ('yeet', 'third message'),
-      ('yeet', 'third message'),
-      ('yeet', 'third message'),
-      ('yeet', 'third message'),
-      ('yeet', 'third message'),
-      ('yeet', 'third message'),
-      ('yeet', 'third message'),
-      ('yeet', 'third message'),
-      ('yeet', 'third message')
+      ('orji', 'second message')
 `;
 
 const dropMessagesTable = 'DROP TABLE messages';

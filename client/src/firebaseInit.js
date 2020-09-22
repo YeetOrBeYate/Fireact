@@ -12,7 +12,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-const messaging = firebase.messaging();
+export const messaging = firebase.messaging();
 
 // next block of code goes here
 
@@ -32,6 +32,7 @@ new Promise((resolve, reject) => {
 export const onMessageListener = () =>
   new Promise((resolve) => {
     messaging.onMessage((payload) => {
+      console.log('messages')
       resolve(payload);
     });
   });

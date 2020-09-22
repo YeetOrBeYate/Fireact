@@ -1,5 +1,5 @@
-importScripts("https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js");
-importScripts("https://www.gstatic.com/firebasejs/7.16.1/firebase-messaging.js",);
+importScripts("https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/7.21.0/firebase-messaging.js",);
 // For an optimal experience using Cloud Messaging, also add the Firebase SDK for Analytics.
 // importScripts("https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js",
 // );

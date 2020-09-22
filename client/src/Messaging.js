@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Spinner from "react-bootstrap/Spinner";
 
 import { toast } from "react-toastify";
+import { onMessageListener, messaging } from './firebaseInit'
 
 export const Messaging = () => {
   const [form, setForm] = React.useState({
@@ -29,16 +30,37 @@ export const Messaging = () => {
       })
   }, []);
 
+  onMessageListener()
+    .then((payload) => {
+      const { title, body } = payload.data;
+      console.log(title, body)
+      toast.info(`${title}; ${body}`);
+    })
+    .catch((err) => {
+      console.log(err)
+      toast.error(JSON.stringify(err));
+    });
+
+  messaging.onMessage(notif => {
+    alert('fsdf', notif)
+    console.log(notif)
+  })
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = () => {
-    // axios.post('http://localhost:4000/messages', form)
-    //   .then(res => {
-    //   console.log(res.data)
-    // })
-    console.log('wha tim', form)
+    setRequesting(true)
+    axios.post('http://localhost:4000/messages', form)
+      .then(res => {
+        let newMessage = res.data.messages[0]
+        setRequesting(false)
+        setMessages([...messages, newMessage ])
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   return (

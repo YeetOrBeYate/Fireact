@@ -17,13 +17,13 @@ const addMessage = async (req, res, next) => {
   const query = `
             INSERT INTO messages(${columns})
             VALUES (${values})
-            RETURNING id
+            RETURNING name, message
         `;
 
   try {
     const data = await pool.pool.query(query)
 
-    const tokens = ['dXy_EfcQ80Fg7zWLA6CIch:APA91bEe1oQRhSPv-Gefyc9jdJ6GwK5Pyo7SOQ5aXavGfB9VD1jNADwPIvXDFiFlKJnMJkHXMexb784U6NFR_BipZePFpePNfRHJ_r_pBPvNiwzWGWSAgnZ1VZgYD08uxh3FLD84JOWQ']
+    const tokens = ['eyFxxmEKVw1n1gXWEnjU2T:APA91bFpS8esNMh22y9udwK8G54gna_nS8vuo1_TldLnFe1NE4YP95Q1bdbxO5aeJRT0z3VPJVq1YPj774EzTDpS5s5EaIwKBT86nGv7BRpyFp47CyzURWwxM1h3Ga0zy496yE60Udiy']
     const notificationData = {
       title: 'New message',
       body: message,
