@@ -13,6 +13,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
 import { Messaging } from './Messaging';
 
+//redux stuff
+
+import { Provider } from 'react-redux'
+import store from './Redux/store'
+
 
 const App = () => {
 
@@ -29,20 +34,22 @@ const App = () => {
   })
 
   return (
-    <Fragment>
-      <ToastContainer autoClose={2000} position="top-center" />
-      <Navbar bg="primary" variant="dark">
-        <Navbar.Brand href="#home">Firebase notifictations with React and Express</Navbar.Brand>
-      </Navbar>
+    <Provider store={store}>
+      <Fragment>
+        <ToastContainer autoClose={2000} position="top-center" />
+        <Navbar bg="primary" variant="dark">
+          <Navbar.Brand href="#home">Firebase notifictations with React and Express</Navbar.Brand>
+        </Navbar>
 
-      <Container className="center-column">
-        <Row>
-          <Col>
-            <Messaging />
-          </Col>
-        </Row>
-      </Container>
-    </Fragment>
+        <Container className="center-column">
+          <Row>
+            <Col>
+              <Messaging />
+            </Col>
+          </Row>
+        </Container>
+      </Fragment>
+    </Provider>
   );
 };
 

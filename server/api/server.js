@@ -12,7 +12,7 @@ app.use(cors());
 app.get('/messages', routes.messagesPage)
 app.post('/messages', routes.addMessage)
 app.use('/', (req, res) => {
-  res.status(200).json({message:'welcome brother'})
+  res.status(200).json({message:'welcome brotherly brother'})
 })
 
 

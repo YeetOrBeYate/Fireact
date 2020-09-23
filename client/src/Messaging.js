@@ -5,9 +5,10 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Container from "react-bootstrap/Container";
 import Spinner from "react-bootstrap/Spinner";
+import { useDispatch } from "react-redux"
 
 import { toast } from "react-toastify";
-import { onMessageListener, messaging } from './firebaseInit'
+import { onMessageListener } from './firebaseInit'
 
 export const Messaging = () => {
   const [form, setForm] = React.useState({
@@ -16,6 +17,8 @@ export const Messaging = () => {
   });
   const [messages, setMessages] = React.useState([]);
   const [requesting, setRequesting] = React.useState(false);
+
+  const dispatch = useDispatch()
 
   React.useEffect(() => {
     setRequesting(true);
@@ -34,6 +37,7 @@ export const Messaging = () => {
     .then((payload) => {
       const { title, body } = payload.data;
       toast.info(`${title}; ${body}`);
+      dispatch({ type:'NEW_NOTIFICATION', payload: payload.data})
     })
     .catch((err) => {
       console.log(err)
