@@ -23,7 +23,7 @@ const addMessage = async (req, res, next) => {
   try {
     const data = await pool.pool.query(query)
 
-    const tokens = ['eyFxxmEKVw1n1gXWEnjU2T:APA91bFpS8esNMh22y9udwK8G54gna_nS8vuo1_TldLnFe1NE4YP95Q1bdbxO5aeJRT0z3VPJVq1YPj774EzTDpS5s5EaIwKBT86nGv7BRpyFp47CyzURWwxM1h3Ga0zy496yE60Udiy']
+    const tokens = ['edaVkOvsPrmSUA-ltpKArZ:APA91bHqQ5pcBh5w1GxzeAUPICUYhbz-d80cKMjKEKaizosK5POiWVvwtB2KSVbbMZMweVWJZtdzTwmy6Q-8YEDDrfyvf4f5PcOhybYKnCwtyg4xYpMb2Yp5DSK7RzwLq0ChweO8G__l']
     const notificationData = {
       title: 'New message',
       body: message,
