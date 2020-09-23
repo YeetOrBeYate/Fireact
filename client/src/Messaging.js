@@ -8,7 +8,7 @@ import Spinner from "react-bootstrap/Spinner";
 import { useDispatch } from "react-redux"
 
 import { toast } from "react-toastify";
-import { onMessageListener } from './firebaseInit'
+import { onMessageListener, messaging } from './firebaseInit'
 
 export const Messaging = () => {
   const [form, setForm] = React.useState({
@@ -33,16 +33,21 @@ export const Messaging = () => {
       })
   }, []);
 
-  onMessageListener()
-    .then((payload) => {
-      const { title, body } = payload.data;
-      toast.info(`${title}; ${body}`);
-      dispatch({ type:'NEW_NOTIFICATION', payload: payload.data})
-    })
-    .catch((err) => {
-      console.log(err)
-      toast.error(JSON.stringify(err));
-    });
+  // onMessageListener()
+  //   .then((payload) => {
+  //     const { title, body } = payload.data;
+  //     console.log('got payload')
+  //     dispatch({ type:'NEW_NOTIFICATION', payload: payload.data})
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //     toast.error(JSON.stringify(err));
+  //   });
+
+  messaging.onMessage((payload) => {
+    console.log('got payload')
+    dispatch({ type:'NEW_NOTIFICATION', payload: payload.data})
+  })
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
