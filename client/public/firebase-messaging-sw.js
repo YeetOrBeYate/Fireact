@@ -1,7 +1,7 @@
-importScripts('https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.21.0/firebase-messaging.js');
+import { firebaseConfig } from "../src/firebaseInit"
 
-import { firebaseConfig } from '../src/firebaseInit'
+importScripts('https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/7.20.0/firebase-messaging.js');
 
 
 firebase.initializeApp(firebaseConfig);

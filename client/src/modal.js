@@ -2,7 +2,7 @@ import React from 'react'
 import {Modal} from 'react-bootstrap'
 
 const ModalComponent = (props) => {
-  const {isVisible, children, onClose, closeText } = props
+  const {isVisible, onClose } = props
 
   return (
     <div>

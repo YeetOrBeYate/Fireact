@@ -13,7 +13,7 @@ const executeQueryArray = async arr => new Promise(resolve => {
 });
 
 const dropTables = () => executeQueryArray([qs.dropMessagesTable]);
-const createTables = () => executeQueryArray([qs.createMessageTable]);
+const createTables = () => executeQueryArray([qs.createTokenTable, qs.createMessageTable]);
 const insertIntoTables = () => executeQueryArray([qs.insertMessages]);
 
 module.exports = {

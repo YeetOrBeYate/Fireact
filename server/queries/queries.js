@@ -7,6 +7,14 @@ CREATE TABLE IF NOT EXISTS messages (
   )
   `;
 
+const createTokenTable = `
+DROP TABLE IF EXISTS tokentable;
+CREATE TABLE IF NOT EXISTS tokentable (
+  id SERIAL PRIMARY KEY,
+  token VARCHAR DEFAULT ''
+  )
+  `;
+
 const insertMessages = `
 INSERT INTO messages(name, message)
 VALUES ('chidimo', 'first message'),
@@ -18,5 +26,6 @@ const dropMessagesTable = 'DROP TABLE messages';
 module.exports = {
   createMessageTable,
   insertMessages,
-  dropMessagesTable
+  dropMessagesTable,
+  createTokenTable,
 }

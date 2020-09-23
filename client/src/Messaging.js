@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import Spinner from "react-bootstrap/Spinner";
 import { useDispatch } from "react-redux"
 
-import { onMessageListener, messaging } from './firebaseInit'
+import { messaging } from './firebaseInit'
 
 export const Messaging = () => {
   const [form, setForm] = React.useState({
@@ -31,18 +31,6 @@ export const Messaging = () => {
 
       })
   }, []);
-
-  // onMessageListener()
-  //   .then((payload) => {
-  //     const { title, body } = payload.data;
-  //     console.log('got payload')
-  //     dispatch({ type:'NEW_NOTIFICATION', payload: payload.data})
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //     toast.error(JSON.stringify(err));
-  //   });
-
 
   messaging.onMessage((payload) => {
     console.log('got payload')
