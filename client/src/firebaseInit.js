@@ -29,6 +29,7 @@ new Promise((resolve, reject) => {
     });
   });
 
+
 export const onMessageListener = () =>
   new Promise((resolve) => {
     messaging.onMessage((payload) => {

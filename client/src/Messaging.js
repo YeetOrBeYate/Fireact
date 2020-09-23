@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 import Spinner from "react-bootstrap/Spinner";
 import { useDispatch } from "react-redux"
 
-import { toast } from "react-toastify";
 import { onMessageListener, messaging } from './firebaseInit'
 
 export const Messaging = () => {
@@ -43,6 +42,7 @@ export const Messaging = () => {
   //     console.log(err)
   //     toast.error(JSON.stringify(err));
   //   });
+
 
   messaging.onMessage((payload) => {
     console.log('got payload')
