@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/messaging';
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyDOinX_SwCqiZdYOxwhVUNdO0G6jAloy1s",
   authDomain: "notificationkyletest.firebaseapp.com",
   databaseURL: "https://notificationkyletest.firebaseio.com",

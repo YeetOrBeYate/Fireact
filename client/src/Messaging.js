@@ -33,18 +33,12 @@ export const Messaging = () => {
   onMessageListener()
     .then((payload) => {
       const { title, body } = payload.data;
-      console.log(title, body)
       toast.info(`${title}; ${body}`);
     })
     .catch((err) => {
       console.log(err)
       toast.error(JSON.stringify(err));
     });
-
-  messaging.onMessage(notif => {
-    alert('fsdf', notif)
-    console.log(notif)
-  })
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
