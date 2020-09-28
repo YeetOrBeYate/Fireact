@@ -1,7 +1,7 @@
 const pool = require('../../models/pool.js')
 const sendNotificationToClient = require('../../notify.js')
 
-const tokenarray = ['startofsctring']
+let singleToken = 'dBikyL-B-kpTp3kaz33_iz:APA91bEiqOjHspLNRcP_JDJKPAB-KBQw0MnP5xLIx9rIRNxsPx9BQmWunio4yQtASAiQ9yDtpS3Zann_fJhpp9aZDihuq74R4wp5ng5Ou6T2dZeCtubhA3qqFPiMPPNOWr9ckEJ4bkRQ'
 
 const messagesPage = async (req, res, next) => {
   try {
@@ -11,6 +11,16 @@ const messagesPage = async (req, res, next) => {
     res.status(400).json({message: 'no messages brother'})
   }
 };
+
+const addToken = async (req, res) => {
+  const { token } = req.body
+  singleToken = token
+  try {
+    res.status(200).json({message: 'token set'})
+  } catch (error) {
+    res.status(401).json({message: 'error on setting token'})
+  }
+}
 
 const addMessage = async (req, res, next) => {
   const { name, message } = req.body;
@@ -25,7 +35,7 @@ const addMessage = async (req, res, next) => {
   try {
     const data = await pool.pool.query(query)
 
-    let tokens = ['dBikyL-B-kpTp3kaz33_iz:APA91bEh7QAz57MEyUbZWzjyRoGmYpwW2-pd_FZlZ4M9677GB0_SUnIeOT2wdklPiai32l553A-3hi-DuDaE3EPJbI9NIsNRtVP9kNDUfOa8tof6t9lvGUMsRDmP-zdRCb7Rp8P9B8MU']
+    let tokens = [singleToken]
 
     const notificationData = {
       title: 'New message',
@@ -42,5 +52,6 @@ const addMessage = async (req, res, next) => {
 
 module.exports = {
   messagesPage,
-  addMessage
+  addMessage,
+  addToken
 }

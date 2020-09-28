@@ -9,6 +9,7 @@ const routes = require('./controllers/messages.js')
 
 app.use(express.json());
 app.use(cors());
+app.post('/token', routes.addToken)
 app.get('/messages', routes.messagesPage)
 app.post('/messages', routes.addMessage)
 app.use('/', (req, res) => {

@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "connect": "node ./queries/connect.js",
+    "runStart": "nodemon index.js",
     "runQuery": "node ./queries/runQuery.js "
   },
   "dependencies": {
